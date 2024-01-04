@@ -1,10 +1,15 @@
 package net.etum.etumatrium;
 
+import net.etum.etumatrium.Listeners.Commands;
+import net.etum.etumatrium.Listeners.Events;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * Main class for the plugin.
+ */
 public final class Main extends JavaPlugin {
 
     private static Economy econ = null;
@@ -24,6 +29,10 @@ public final class Main extends JavaPlugin {
             return;
         }
 
+        new Commands(this);
+        new Events(this);
+
+
         getLogger().info(String.format("[%s] Plugin successfully started!", this.getName()));
     }
 
@@ -42,7 +51,7 @@ public final class Main extends JavaPlugin {
             return false;
         }
         econ = rsp.getProvider();
-        return econ != null;
+        return true;
     }
 
     public static Economy getEconomy() {
