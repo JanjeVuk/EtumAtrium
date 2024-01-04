@@ -1,0 +1,56 @@
+package net.etum.etumatrium;
+
+import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.RegisteredServiceProvider;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class Main extends JavaPlugin {
+
+    private static Economy econ = null;
+
+    // Added instance reference to make singleton structure.
+    private static Main instance;
+
+    @Override
+    public void onEnable() {
+        // Instance reference assignment
+        instance = this;
+
+        // Plugin startup logic
+        if (!setupEconomy()) {
+            getLogger().severe(String.format("[%s] - Disabled due to no Vault dependency found!", this.getName()));
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
+
+        getLogger().info(String.format("[%s] Plugin successfully started!", this.getName()));
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+        getLogger().info(String.format("[%s] Plugin successfully stopped!", this.getName()));
+    }
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+        econ = rsp.getProvider();
+        return econ != null;
+    }
+
+    public static Economy getEconomy() {
+        return econ;
+    }
+
+    // Getter for instance
+    public static Main getInstance() {
+        return instance;
+    }
+}

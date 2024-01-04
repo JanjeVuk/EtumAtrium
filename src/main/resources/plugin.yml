@@ -1,0 +1,4 @@
+name: EtumAtrium
+version: '${project.version}'
+main: net.etum.etumatrium.Main
+api-version: '1.20'
