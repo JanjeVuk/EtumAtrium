@@ -1,0 +1,11 @@
+
+# Settings for the plugin
+Module:
+  ConnectionManager:
+    enable: true
+    message:
+      join: "&7[&a+&7] %player%"
+      quit: "&7[&c-&7] %player%"
+
+
+
