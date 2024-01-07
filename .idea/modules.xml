@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EtumAtrium.iml" filepath="$PROJECT_DIR$/EtumAtrium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EtumAtrium.iml" filepath="$PROJECT_DIR$/.idea/EtumAtrium.iml" />
     </modules>
   </component>
 </project>
