@@ -2,6 +2,7 @@ package net.etum.etumatrium.Listeners;
 
 import net.etum.etumatrium.Main;
 import net.etum.etumatrium.Player.Events.ConnectionManager;
+import net.etum.etumatrium.Server.ServerListPingManager;
 import org.bukkit.plugin.PluginManager;
 
 public class Events {
@@ -20,6 +21,12 @@ public class Events {
     private void eventsPlayer(Main main, PluginManager pm){
 
         pm.registerEvents(new ConnectionManager(), main);
+
+    }
+
+    private void eventServer(Main main, PluginManager pm){
+
+        pm.registerEvents(new ServerListPingManager(), main);
 
     }
 }
