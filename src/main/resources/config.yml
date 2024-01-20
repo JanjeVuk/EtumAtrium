@@ -9,6 +9,10 @@ Module:
       welcome:
         - "Bienvenue "
         - "petit joueur"
-
+  MOTD:
+    enable: true
+    message:
+      - "?"
+      - "?"
 
 
