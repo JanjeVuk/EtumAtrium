@@ -19,6 +19,9 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        saveDefaultConfig();
+
         // Instance reference assignment
         instance = this;
 
@@ -31,8 +34,6 @@ public final class Main extends JavaPlugin {
 
         new Commands(this);
         new Events(this);
-
-        saveDefaultConfig();
 
 
         getLogger().info(String.format("[%s] Plugin successfully started!", this.getName()));
