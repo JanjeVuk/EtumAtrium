@@ -15,6 +15,7 @@ public class Events {
 
 
         eventsPlayer(main, pm);
+        eventServer(main, pm);
 
     }
 
