@@ -9,48 +9,60 @@ import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-/**
- * The ConnectionManager class is responsible for managing player connection events
- * and displaying join and quit messages.
- * Implements the Listener interface to handle events.
- */
+import java.util.List;
+
 public class ConnectionManager implements Listener {
 
-
     /**
-     * The JOIN_MSG_KEY represents the key used to retrieve the join message from the configuration file.
-     * This key is used in the ConnectionManager class to display a customized join message to players.
+     * Represents the join message key for the ConnectionManager module.
+     * This key is used to fetch the join message from the configuration file.
      */
     private static final String JOIN_MSG_KEY = "Module.ConnectionManager.message.join";
     /**
-     * The key used to retrieve the quit message from the configuration file.
-     * This key is used in the ConnectionManager class to display a customized quit message to players.
+     * Represents the key for the quit message in the ConnectionManager module.
      */
     private static final String QUIT_MSG_KEY = "Module.ConnectionManager.message.quit";
     /**
-     * Welcome message displayed to players when they join the server.
-     * This message is used in the ConnectionManager class to display a customized welcome message to players.
+     * Represents a welcome message string.
+     *
+     * The value of this variable is obtained from the configuration file and is used to display a welcome
+     * message to players when they join the server for the first time. The message is customizable and
+     * can contain replacement placeholders such as '%player%' to dynamically insert the player's name.
+     *
+     * The value of this variable is obtained by calling the 'getWelcomeMsg()' method, which retrieves the
+     * welcome message from the configuration file and returns it as a string. The message is stored in
+     * 'WELCOME_MSG' as a private static final variable.
+     *
+     * @see ConnectionManager
+     * @see ConnectionManager#getWelcomeMsg()
+     * @see ConnectionManager#applyPlayerEventMessage(PlayerEvent, String)
      */
-    private static final String WELCOME_MSG = "Bienvenue sur le serveur!";
-
+    private static final String WELCOME_MSG = getWelcomeMsg();
 
     /**
-     * The ConnectionManager class is responsible for managing player connection events
-     * and displaying join and quit messages.
-     * Implements the Listener interface to handle events.
+     * Retrieves the welcome message from the plugin configuration.
+     *
+     * @return the welcome message
+     */
+    private static String getWelcomeMsg() {
+        FileConfiguration config = Main.getInstance().getConfig();
+        return String.join(System.lineSeparator(), config.getStringList("Module.ConnectionManager.message.welcome"));
+    }
+
+    /**
+     * Handles the player join event.
+     *
+     * @param event The PlayerJoinEvent object representing the event.
      */
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         applyPlayerEventMessage(event, JOIN_MSG_KEY);
     }
 
-
     /**
-     * This method is called when a player quits the server.
-     * It applies a quit message to the player using the message key defined in the ConnectionManager class.
+     * Handles the PlayerQuitEvent.
      *
-     * @param event        The PlayerQuitEvent associated with the player quitting.
-     * @see ConnectionManager#applyPlayerEventMessage(PlayerEvent, String)
+     * @param event The PlayerQuitEvent object.
      */
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
@@ -58,10 +70,10 @@ public class ConnectionManager implements Listener {
     }
 
     /**
-     * Applies a player event message to the specified event.
+     * Applies a player event message.
      *
-     * @param event        The player event to apply the message to.
-     * @param messageKey   The key used to retrieve the message from the configuration file.
+     * @param event       The player event.
+     * @param messageKey  The key of the message to retrieve from the configuration.
      */
     private void applyPlayerEventMessage(PlayerEvent event, String messageKey) {
         FileConfiguration config = Main.getInstance().getConfig();
@@ -69,12 +81,17 @@ public class ConnectionManager implements Listener {
             return;
         }
 
-        String message = config.getString(messageKey, WELCOME_MSG)
+        String message = config.getString(messageKey, "no message found")
                 .replace('&', '§')
                 .replace("%player%", event.getPlayer().getName());
         Component textComponent = Component.text(message);
 
         if (event instanceof PlayerJoinEvent) {
+            if (!event.getPlayer().hasPlayedBefore()) {
+                event.getPlayer().sendMessage(WELCOME_MSG
+                        .replace('&', '§')
+                        .replace("%player%", event.getPlayer().getName()));
+            }
             ((PlayerJoinEvent) event).joinMessage(textComponent);
         } else if (event instanceof PlayerQuitEvent) {
             ((PlayerQuitEvent) event).quitMessage(textComponent);
