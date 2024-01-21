@@ -1,6 +1,6 @@
 
 # Settings for the plugin
-Module:
+MODULE:
   ConnectionManager:
     enable: true
     message:
@@ -9,6 +9,10 @@ Module:
       welcome:
         - "Bienvenue "
         - "petit joueur"
-
+  MOTD:
+    enable: true
+    message:
+      - "MOTD LINE 1"
+      - "MOTD LINE 2"
 
 
