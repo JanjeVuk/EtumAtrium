@@ -2,4 +2,10 @@ name: EtumAtrium
 version: '1.0-SNAPSHOT'
 main: net.etum.etumatrium.Main
 api-version: '1.20'
+commands:
+  atrium:
+    permission: atrium.admin
+    aliases:
+      - system
+    description: command for manage server
 
