@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ConnectionManager implements Listener {
 
-    private static final String JOIN_MSG_KEY = "Module.ConnectionManager.message.join";
-    private static final String QUIT_MSG_KEY = "Module.ConnectionManager.message.quit";
+    private static final String JOIN_MSG_KEY = "MODULE.ConnectionManager.message.join";
+    private static final String QUIT_MSG_KEY = "MODULE.ConnectionManager.message.quit";
     private static final String WELCOME_MSG = getWelcomeMsg();
 
     /**
@@ -24,7 +24,7 @@ public class ConnectionManager implements Listener {
      */
     private static String getWelcomeMsg() {
         FileConfiguration config = Main.getInstance().getConfig();
-        return String.join(System.lineSeparator(), config.getStringList("Module.ConnectionManager.message.welcome"));
+        return String.join(System.lineSeparator(), config.getStringList("MODULE.ConnectionManager.message.welcome"));
     }
 
     /**
@@ -54,9 +54,7 @@ public class ConnectionManager implements Listener {
      * @param messageKey  The key*/
     private void applyPlayerEventMessage(PlayerEvent event, String messageKey) {
         FileConfiguration config = Main.getInstance().getConfig();
-        if (!config.getBoolean("Module.ConnectionManager.enable")) {
-            return;
-        }
+        if (!config.getBoolean("MODULE.ConnectionManager.enable")) return;
 
         String message = config.getString(messageKey, "no message found")
                 .replace('&', '§')
