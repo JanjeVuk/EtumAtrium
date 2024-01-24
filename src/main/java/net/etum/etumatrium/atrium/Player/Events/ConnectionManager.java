@@ -1,4 +1,4 @@
-package net.etum.etumatrium.Player.Events;
+package net.etum.etumatrium.atrium.Player.Events;
 
 import net.etum.etumatrium.Main;
 import net.kyori.adventure.text.Component;
@@ -8,8 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import java.util.List;
 
 public class ConnectionManager implements Listener {
 
