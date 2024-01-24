@@ -1,7 +1,7 @@
-package net.etum.etumatrium.Listeners;
+package net.etum.etumatrium.atrium.Listeners;
 
 import net.etum.etumatrium.Main;
-import net.etum.etumatrium.Player.Events.ConnectionManager;
+import net.etum.etumatrium.atrium.Player.Events.ConnectionManager;
 import net.etum.etumatrium.Server.ServerListPingManager;
 import org.bukkit.plugin.PluginManager;
 
