@@ -4,8 +4,12 @@ main: net.etum.etumatrium.Main
 api-version: '1.20'
 commands:
   atrium:
-    permission: atrium.admin
+    permission: atrium.use
     aliases:
       - system
     description: command for manage server
-
+  gamemode:
+    permission: gamemode.use
+    aliases:
+      - gm
+    description: command for change gamemode
