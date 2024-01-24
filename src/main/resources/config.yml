@@ -1,4 +1,8 @@
 
+SERVER:
+  prefix:
+    info: "&l&e[&l&aINFO&l&e] "
+
 # Settings for the plugin
 MODULE:
   ConnectionManager:
