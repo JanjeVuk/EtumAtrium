@@ -1,6 +1,7 @@
-net\etum\etumatrium\Listeners\Commands.class
-net\etum\etumatrium\Listeners\Events.class
+net\etum\etumatrium\atrium\Player\Commands\CommandGamemode.class
+net\etum\etumatrium\atrium\Player\Commands\CommandAtrium.class
 net\etum\etumatrium\Main.class
+net\etum\etumatrium\atrium\Listeners\Events.class
+net\etum\etumatrium\atrium\Player\Events\ConnectionManager.class
+net\etum\etumatrium\atrium\Listeners\Commands.class
 net\etum\etumatrium\Server\ServerListPingManager.class
-net\etum\etumatrium\Player\Commands\CommandAtrium.class
-net\etum\etumatrium\Player\Events\ConnectionManager.class
