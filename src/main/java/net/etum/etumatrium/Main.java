@@ -1,7 +1,7 @@
 package net.etum.etumatrium;
 
-import net.etum.etumatrium.Listeners.Commands;
-import net.etum.etumatrium.Listeners.Events;
+import net.etum.etumatrium.atrium.Listeners.Commands;
+import net.etum.etumatrium.atrium.Listeners.Events;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
