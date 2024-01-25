@@ -55,16 +55,14 @@ public class CommandSystem implements CommandExecutor, TabCompleter {
             return false;
         }
 
-        switch (args[0].toLowerCase()) {
-            case "reload":
-                // Vérifier les permissions pour recharger la configuration
-                plugin.reloadConfig();
-                sender.sendMessage("Configuration rechargée !");
-                return true;
-            default:
-                sender.sendMessage("Commande invalide !");
-                return false;
+        if (args[0].equalsIgnoreCase("reload")) {// Vérifier les permissions pour recharger la configuration
+            plugin.reloadConfig();
+            sender.sendMessage("Configuration rechargée !");
+            return true;
         }
+        sender.sendMessage("Commande invalide !");
+        return false;
+
     }
 
     /**
