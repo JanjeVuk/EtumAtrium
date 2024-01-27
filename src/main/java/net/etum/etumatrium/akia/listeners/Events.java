@@ -1,7 +1,7 @@
-package net.etum.etumatrium.AKIA.Listeners;
+package net.etum.etumatrium.akia.listeners;
 
 import net.etum.etumatrium.Main;
-import net.etum.etumatrium.AKIA.Player.Events.ConnectionManager;
+import net.etum.etumatrium.akia.player.Events.ConnectionManager;
 import net.etum.etumatrium.Server.ServerListPingManager;
 import org.bukkit.plugin.PluginManager;
 

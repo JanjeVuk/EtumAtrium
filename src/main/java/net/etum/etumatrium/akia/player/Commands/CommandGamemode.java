@@ -1,4 +1,4 @@
-package net.etum.etumatrium.AKIA.Player.Commands;
+package net.etum.etumatrium.akia.player.Commands;
 
 import net.etum.etumatrium.Main;
 import org.bukkit.Bukkit;

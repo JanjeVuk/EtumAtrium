@@ -1,4 +1,4 @@
-package net.etum.etumatrium.AKIA.Player.Events;
+package net.etum.etumatrium.akia.player.Events;
 
 import net.etum.etumatrium.Main;
 import net.kyori.adventure.text.Component;
