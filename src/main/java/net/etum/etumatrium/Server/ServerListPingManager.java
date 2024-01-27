@@ -15,17 +15,13 @@ public class ServerListPingManager implements Listener {
     public void onServerListPing(ServerListPingEvent event) {
         FileConfiguration config = Main.getInstance().getConfig();
         if (!config.getBoolean("MODULE.MOTD.enable")) return;
-
         List<String> messageList = config.getStringList("MODULE.MOTD.message");
-        event.motd(
-                Component.text(
-                        messageList.get(0).replace('&', '§') + "\n" + messageList.get(1).replace('&', '§')
-                )
-        );
+        event.motd(buildMotd(messageList));
     }
 
-
-
-
-
+    private Component buildMotd(List<String> messageList) {
+        return Component.text(
+                messageList.get(0).replace('&', '§') + "\n" + messageList.get(1).replace('&', '§')
+        );
+    }
 }

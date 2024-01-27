@@ -1,8 +1,8 @@
-package net.etum.etumatrium.atrium.Listeners;
+package net.etum.etumatrium.AKIA.Listeners;
 
 import net.etum.etumatrium.Main;
-import net.etum.etumatrium.atrium.Player.Commands.CommandSystem;
-import net.etum.etumatrium.atrium.Player.Commands.CommandGamemode;
+import net.etum.etumatrium.AKIA.Player.Commands.CommandSystem;
+import net.etum.etumatrium.AKIA.Player.Commands.CommandGamemode;
 
 import java.util.Objects;
 
