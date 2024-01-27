@@ -1,4 +1,4 @@
-package net.etum.etumatrium.akia.region.gui.builder;
+package net.etum.etumatrium.akia.region.builder;
 
 public class Coordinate {
 
